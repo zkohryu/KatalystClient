@@ -95,12 +95,12 @@ function closeLoginModal() {
 }
 
 // Login Handler
-function handleLogin(e) {
+async function handleLogin(e) {
     e.preventDefault();
     const user = document.getElementById('loginUser').value;
     const pass = document.getElementById('loginPass').value;
 
-    const res = Auth.login(user, pass);
+    const res = await Auth.login(user, pass);
     if (res.success) {
         closeLoginModal();
         updateAuthUI();
@@ -110,6 +110,7 @@ function handleLogin(e) {
         loginError.textContent = res.message;
     }
 }
+
 
 // Logout Handler
 function logout() {
