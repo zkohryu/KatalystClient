@@ -1,6 +1,4 @@
-// Katalyst Secure Authentication
-// Sifreler GitHub uzerinde asla acik metin olarak tutulmaz.
-// Tum parolalar tek yonlu kriptografik SHA-256 Hash ile saklanir.
+
 const ACCOUNT_HASHES = {
     "admin": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
     "Kohryu": "49048fc3bb279728276e3942c9d655ac214023d2aa9dd6a6568bc6c93d688f8f",
