@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalyst Client | Official</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="ambient-glow"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-left">
+            <span class="brand-logo">KATALYST</span>
+            <span class="brand-version">v1.0.0</span>
+        </div>
+
+        <nav class="nav-center">
+            <button class="nav-link active" onclick="switchTab('home')">Home</button>
+            <button class="nav-link" onclick="switchTab('bypasses')">Bypasses</button>
+        </nav>
+
+        <div class="nav-right">
+            <!-- Logged Out State -->
+            <button id="navLoginBtn" class="btn btn-outline" onclick="openLoginModal()">Login</button>
+
+            <!-- Logged In State (Hidden by default) -->
+            <div id="navUserMenu" class="user-menu" style="display: none;">
+                <button class="account-btn" onclick="toggleDropdown()">
+                    <span class="user-avatar">K</span>
+                    <span id="navUsername" class="user-name">User</span>
+                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div id="accountDropdown" class="dropdown-content">
+                    <div class="dropdown-header">
+                        <span class="status-indicator"></span> Active Subscription
+                    </div>
+                    <button class="dropdown-item" onclick="switchTab('account')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        Account & Download
+                    </button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item logout" onclick="logout()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="content-wrapper">
+        <!-- HOME SECTION -->
+        <section id="section-home" class="tab-pane active">
+            <div class="hero-container">
+                <div class="badge">FORGE 1.8.9 HYBRID CLIENT</div>
+                <h1 class="hero-title">NEXT-GEN <span class="highlight">COMBAT</span> DOMINANCE</h1>
+                <p class="hero-desc">Custom-built performance client with Silent Rotation, Anti-Vanish radar, built-in OptiFine support, and zero latency packet handling.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="handleHeroDownload()">Get Katalyst</button>
+                    <button class="btn btn-secondary" onclick="switchTab('bypasses')">View Bypasses</button>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feat-icon">⚔️</div>
+                        <h3>Strict Aim & Search Range</h3>
+                        <p>Silent client rotations visible only in F5 mode with separated search and hit reach thresholds.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feat-icon">🛡️</div>
+                        <h3>Anti-Vanish Radar</h3>
+                        <p>Automatic real-time bottom-right toast alerts whenever staff vanish or teleport nearby.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feat-icon">⚡</div>
+                        <h3>Zero Overhead</h3>
+                        <p>Pre-packaged OptiFine HD U H8 inside the core JAR with lightweight asynchronous threads.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BYPASSES SECTION -->
+        <section id="section-bypasses" class="tab-pane">
+            <div class="bypasses-container">
+                <div class="section-header">
+                    <h2>ANTIBEAT <span class="highlight">BYPASSES</span></h2>
+                    <p>Continuously updated algorithms tuned specifically for modern anti-cheat architectures.</p>
+                </div>
+
+                <div class="bypasses-list">
+                    <!-- Polar -->
+                    <div class="bypass-card">
+                        <div class="bypass-left">
+                            <span class="bypass-tag">PRIMARY TARGET</span>
+                            <h3>Polar</h3>
+                            <p>Full Raycast check bypass, legitimate mouse simulation delay, silent target locking.</p>
+                        </div>
+                        <div class="bypass-status online">
+                            <span class="dot"></span> FULLY UNDETECTED
+                        </div>
+                    </div>
+
+                    <!-- Intave -->
+                    <div class="bypass-card">
+                        <div class="bypass-left">
+                            <span class="bypass-tag">PHYSICS ENGINE</span>
+                            <h3>Intave</h3>
+                            <p>Optimized strafe vectors, legit sprint acceleration, and hurt-time verified KeepSprint.</p>
+                        </div>
+                        <div class="bypass-status online">
+                            <span class="dot"></span> FULLY UNDETECTED
+                        </div>
+                    </div>
+
+                    <!-- Vulcan -->
+                    <div class="bypass-card">
+                        <div class="bypass-left">
+                            <span class="bypass-tag">MOVEMENT & COMBAT</span>
+                            <h3>Vulcan</h3>
+                            <p>Safe angle delta clamping, smooth non-linear interpolation, adaptive reach limiters.</p>
+                        </div>
+                        <div class="bypass-status online">
+                            <span class="dot"></span> FULLY UNDETECTED
+                        </div>
+                    </div>
+
+                    <!-- Grim -->
+                    <div class="bypass-card">
+                        <div class="bypass-left">
+                            <span class="bypass-tag">PREDICTION SYSTEM</span>
+                            <h3>Grim</h3>
+                            <p>Strict transaction sync, 1.8.9 accurate hitboxes with server-side motion alignment.</p>
+                        </div>
+                        <div class="bypass-status online">
+                            <span class="dot"></span> FULLY UNDETECTED
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCOUNT & DOWNLOAD SECTION -->
+        <section id="section-account" class="tab-pane">
+            <div class="account-container">
+                <div class="account-card">
+                    <div class="card-header">
+                        <h2>Client Management</h2>
+                        <span class="license-pill">ACTIVE LICENSE</span>
+                    </div>
+
+                    <div class="user-details-box">
+                        <div class="detail-row">
+                            <span class="detail-label">Logged In User:</span>
+                            <span id="accountUserDisplay" class="detail-val"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Client Build:</span>
+                            <span class="detail-val">Katalyst-1.0.0.jar (OptiFine Embedded)</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Status:</span>
+                            <span class="detail-val text-green">HWID Verified / Ready</span>
+                        </div>
+                    </div>
+
+                    <div class="download-box">
+                        <h3>Download Latest Stable Release</h3>
+                        <p>Place this JAR directly into your <code>.minecraft/mods</code> folder (Requires Forge 1.8.9).</p>
+                        <a href="downloads/Katalyst-1.0.0.jar" download="Katalyst-1.0.0.jar" class="btn btn-primary btn-large">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download Katalyst-1.0.0.jar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+            <div class="modal-header">
+                <h2>KATALYST <span class="highlight">LOGIN</span></h2>
+                <p>Enter your client credentials to access builds.</p>
+            </div>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="loginUser" placeholder="e.g. Kohryu, Hasanizm" required autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPass" placeholder="••••••••••••" required>
+                </div>
+                <div id="loginError" class="error-msg"></div>
+                <button type="submit" class="btn btn-primary btn-full">Authenticate</button>
+            </form>
+            <div class="modal-footer">
+                <span>Don't have an account? Contact support for purchase.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="auth.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
